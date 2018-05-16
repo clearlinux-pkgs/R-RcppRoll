@@ -4,7 +4,7 @@
 #
 Name     : R-RcppRoll
 Version  : 0.2.2
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/RcppRoll_0.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RcppRoll_0.2.2.tar.gz
 Summary  : Efficient Rolling / Windowed Operations
