@@ -4,22 +4,22 @@
 #
 Name     : R-RcppRoll
 Version  : 0.3.0
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/RcppRoll_0.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RcppRoll_0.3.0.tar.gz
 Summary  : Efficient Rolling / Windowed Operations
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-RcppRoll-lib = %{version}-%{release}
+Requires: R-Rcpp
 BuildRequires : R-Rcpp
-BuildRequires : R-assertthat
 BuildRequires : buildreq-R
 
 %description
-RcppRoll
-=====
-This package provides windowed-versions of commonly-used mathematical
-and statistical functions.
+common rolling / windowed operations. Routines for the
+    efficient computation of windowed mean, median,
+    sum, product, minimum, maximum, standard deviation
+    and variance are provided.
 
 %package lib
 Summary: lib components for the R-RcppRoll package.
@@ -36,13 +36,13 @@ lib components for the R-RcppRoll package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552950758
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569370187
 
 %install
-export SOURCE_DATE_EPOCH=1552950758
+export SOURCE_DATE_EPOCH=1569370187
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,12 +71,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  RcppRoll || :
+R CMD check --no-manual --no-examples --no-codoc RcppRoll || :
 
 
 %files
