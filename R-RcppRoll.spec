@@ -4,7 +4,7 @@
 #
 Name     : R-RcppRoll
 Version  : 0.3.0
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/RcppRoll_0.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RcppRoll_0.3.0.tar.gz
 Summary  : Efficient Rolling / Windowed Operations
@@ -14,12 +14,13 @@ Requires: R-RcppRoll-lib = %{version}-%{release}
 Requires: R-Rcpp
 BuildRequires : R-Rcpp
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-common rolling / windowed operations. Routines for the
-    efficient computation of windowed mean, median,
-    sum, product, minimum, maximum, standard deviation
-    and variance are provided.
+RcppRoll
+=====
+This package provides windowed-versions of commonly-used mathematical
+and statistical functions.
 
 %package lib
 Summary: lib components for the R-RcppRoll package.
@@ -37,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569370187
+export SOURCE_DATE_EPOCH=1571885023
 
 %install
-export SOURCE_DATE_EPOCH=1569370187
+export SOURCE_DATE_EPOCH=1571885023
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
